@@ -9,6 +9,7 @@ class entity:
 		self.xVel = xVel
 		self.yVel = yVel
 		self.size = 1
+		self.color = {'r': 1, 'g': 1, 'b': 1}
 
 	def updatePos(self, terminalVel, friction):
 		Vel = math.sqrt(math.pow(self.xVel, 2) + math.pow(self.yVel, 2))
@@ -37,3 +38,11 @@ class entity:
 			self.yVel = -self.yVel
 		elif self.yPos < (yBoundMin + self.size/2) and self.yVel < 0:
 			self.yVel = -self.yVel
+
+	def package(self):
+		pkg = {'id': self.id}
+		pkg['x'] = self.xPos
+		pkg['y'] = self.yPos
+		pkg['size'] = self.size
+		pkg['color'] = self.color
+		return pkg

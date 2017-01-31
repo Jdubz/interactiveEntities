@@ -19,3 +19,10 @@ class connector:
 			# TODO - abstract to interaction middleware
 			self.a.updateVel(-x * entityPull * pull, -y * entityPull * pull)
 			self.b.updateVel(x * entityPull * pull, y * entityPull * pull)
+
+	def package(self):
+		pkg = {'id': self.id}
+		pkg['length'] = self.length
+		pkg['a'] = self.a.id
+		pkg['b'] = self.b.id
+		return pkg
